@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CodeFish</title>
+  <icon>http://tomotoes.com/icon.png</icon>
+  <subtitle>代码不只是一项工作，更是认识世界的一种方式</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://tomotoes.com/"/>
+  <updated>2020-02-28T12:09:44.869Z</updated>
+  <id>http://tomotoes.com/</id>
+  
+  <author>
+    <name>jankin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://tomotoes.com/posts/4a17b156/"/>
+    <id>http://tomotoes.com/posts/4a17b156/</id>
+    <published>2020-02-28T12:09:44.869Z</published>
+    <updated>2020-02-28T12:09:44.869Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
