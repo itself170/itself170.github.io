@@ -190,6 +190,94 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="layout-二进制编码"
+  class="article-card article-type-layout" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/undefined/">二进制编码</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-03-01 10:16:35" datetime="2020-03-01T02:16:35.000Z"  itemprop="datePublished">2020-03-01</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>1、计算机系统的内部只能以二进制形式存储数据。</p>
+<p>2、在Java程序中采用Unicode编码，所有的数字和文字都会以Unicode编码来处理。</p>
+<p>Unicode编码有8位、16位、32位不同的编码方案，但是无论哪种编码方案，最终都</p>
+<p>会转为二进制给CPU处理。</p>
+<h5 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h5><p>1、Unicode编码可以统一世界上所有的字符，每一个字符都会对应着一个具体的数字。</p>
+<p>具体是如何对应的，我们不需要考虑。</p>
+<p>2、Unicode仅仅只是一个字符集，规定了符合对应的二进制代码，至于这个二进制代码如何存储</p>
+<p>则没有任何规定。也就是一个字符可能以8位、16位、32位等任意一种编码形式存储。</p>
+<p>正是因为Unicode编码能以不同的编码方式存储，所以针对不同的存储编码，Unicode又诞生</p>
+<p>出utf-8、utf-16、utf-32等编码。</p>
+<p>结论：UTF-8、UTF-16、UTF-32等编码都是Unicode编码下的分支。</p>
+<p>3、汉字在Unicode下的码点范围大致是  0x4E00——0x9FA5以汉字 “汉” 为例，它的 Unicode </p>
+<p>码点是 0x6c49，对应的二进制数是 110110001001001，二进制数有 15 位，这也就说明了它至</p>
+<p>少需要 2 个字节来表示。越往后的话，就可能占用3-4个字节。所以，在Unicode编码下，汉字</p>
+<p>会占据2-4个字节。</p>
+<p>4、问题：计算机如何知道你2个字节（甚至更多）表示的是一个字符，而不是分别的两个字符呢？</p>
+<p>由于最多占用4个字节，那么就设定无论字符都采用4个字节来表示，这样确实能解决问题。但是</p>
+<p>造成了空间的浪费。于是 utf-8 和 utf-16的随之产生。</p>
+<p>UTF-8</p>
+<p>1、最大特点就是可变长。它可以使用 1-4 个字节表示一个字符，根据字符的不同变换长度。</p>
+<p>2、漂亮实现对ASCII码的兼容，原始的Unicode码不兼容ASCII码</p>
+<p><strong>编码规则</strong></p>
+<p>1、对于单个字节的字符，第一位设为 0，后面的 7 位对应这个字符的 Unicode 码点。因此，对于英文中的 0 - 127 号字符，与 ASCII 码完全相同。这意味着 ASCII 码那个年代的文档用 UTF-8 编码打开完全没有问题。</p>
+<p>2、对于需要使用 N 个字节来表示的字符（N &gt; 1），第一个字节的前 N 位都设为 1，第 N + 1 位设为0，剩余的 N - 1 个字节的前两位都设位 10，剩下的二进制位则使用这个字符的 Unicode 码点来填充。</p>
+<p><img src="file:///D:/ProgramWork/WikiNote/temp/90eea752-ed17-4dc6-8790-002d64719ca9/128/index_files/d45273ff-8d92-4fce-937e-be588820593e.png" alt="img"></p>
+<p><strong>具体编码演示</strong></p>
+<p>“汉”的 Unicode 码点是 0x6c49（110 1100 0100 1001），通过上面的对照表可以发现，0x0000 6c49 位于第三行的范围，那么得出其格式为 1110xxxx 10xxxxxx 10xxxxxx。接着，从“汉”的二进制数最后一位开始，从后向前依次填充对应格式中的 x，多出的 x 用 0 补上。这样，就得到了“汉”的UTF-8编码为11100110 10110001 10001001，转换成十六进制就是 0xE6 0xB7 0x89。</p>
+<p>解码的过程也十分简单：如果一个字节的第一位是 0 ，则说明这个字节对应一个字符；如果一个字节的第一位1，那么连续有多少个 1，就表示该字符占用多少个字节。</p>
+<p>参考： <a href="https://blog.csdn.net/hezh1994/article/details/78899683" target="_blank" rel="noopener">https://blog.csdn.net/hezh1994/article/details/78899683</a></p>
+<p>char类型的编码</p>
+<p>unicode与utf-8、utf-16等不是一种东西，后者只是前者的一个局部实现。而java里的char类型无论何时都是2字节的，字母’A’也不例外，只是在流中就不一定了，因为不同的编码方式有不同的规则。 unicode第一Plane总共有65536个空位，是16位的，占两个字节，因为java仅使用了unicode的第一个Plane，所以也是16位的。 </p>
+<p>从字符流中以某种字符编码读取读取字符时，会将流中的字节以某种字符编码的机内码规则进行解码，并转换为unicode的值存储到char类型变量中；</p>
+<p>向字符流以某种字符编码写入字符时，会将char类型的unicode码代表的字符以某种的字符编码的机内码规则进行编码，然后将编码后的字节写入到目标流中。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/undefined/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-hello-world"
   class="article-card article-type-post" itemprop="blogPost">
 

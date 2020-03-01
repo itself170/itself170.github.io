@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomotoes.com/"/>
-  <updated>2020-02-28T12:09:44.869Z</updated>
+  <updated>2020-03-01T02:34:11.192Z</updated>
   <id>http://tomotoes.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>二进制编码</title>
+    <link href="http://tomotoes.com/posts/undefined/"/>
+    <id>http://tomotoes.com/posts/undefined/</id>
+    <published>2020-03-01T02:16:35.000Z</published>
+    <updated>2020-03-01T02:34:11.192Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、计算机系统的内部只能以二进制形式存储数据。&lt;/p&gt;
+&lt;p&gt;2、在Java程序中采用Unicode编码，所有的数字和文字都会以Unicode编码来处理。&lt;/p&gt;
+&lt;p&gt;Unicode编码有8位、16位、32位不同的编码方案，但是无论哪种编码方案，最终都&lt;/p&gt;
+&lt;p&gt;会转
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://tomotoes.com/posts/4a17b156/"/>
     <id>http://tomotoes.com/posts/4a17b156/</id>
     <published>2020-02-28T12:09:44.869Z</published>
-    <updated>2020-02-28T12:09:44.869Z</updated>
+    <updated>2020-02-29T01:59:02.013Z</updated>
     
     <summary type="html">
     
